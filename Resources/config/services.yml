@@ -1,0 +1,11 @@
+parameters:
+    tiny_png.compress.class: Bolser\TinyPngBundle\Service\TinyPngCompressService
+    tiny_png.resize.class: Bolser\TinyPngBundle\Service\TinyPngResizeService
+services:
+    tiny_png.compress.service:
+        class: '%tiny_png.compress.class%'
+        arguments: ['%tiny_png.api_key%']
+
+    tiny_png.resize.service:
+        class: '%tiny_png.resize.class%'
+        arguments: ['%tiny_png.api_key%']

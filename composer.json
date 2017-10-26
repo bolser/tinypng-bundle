@@ -1,0 +1,23 @@
+{
+    "name": "bolser/tinypng-bundle",
+    "description": "Utilise TinyPNG's API easily",
+    "type": "symfony-bundle",
+    "require": {
+        "tinify/tinify": "^1.5",
+        "php": "^7.0",
+        "symfony/config": "^3.3",
+        "symfony/dependency-injection": "^3.3",
+        "symfony/console": "^3.3",
+        "symfony/http-kernel": "^3.3"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "MatthewBooth",
+            "email": "kryten2k35@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": { "Bolser\\TinyPngBundle\\": "" }
+    }
+}
