@@ -3,6 +3,7 @@
 namespace Bolser\TinyPngBundle\Service\Base;
 
 use Psr\Log\LoggerInterface;
+use Tinify\Exception;
 
 /**
  * Class BaseTinyPngService
@@ -30,7 +31,7 @@ abstract class BaseTinyPngService
         try {
             \Tinify\setKey($apiKey);
             \Tinify\validate();
-        } catch(\Tinify\Exception $e) {
+        } catch (Exception $e) {
             $logger->critical($e->getMessage());
         }
     }

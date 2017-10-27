@@ -17,7 +17,7 @@ use Tinify\Source;
  */
 class TinyPngCompressService extends BaseTinyPngService
 {
-     /**
+    /**
      * Compress a single image
      *
      * @see https://tinypng.com/developers/reference/php#compressing-images TinyPNG Compression Documentation
