@@ -38,7 +38,7 @@ class TinyPngResizeService extends BaseTinyPngService
         $source = \Tinify\fromFile($input);
 
         // If no output selected, use the input
-        if ($overwrite === '') {
+        if ($output === '') {
             $output = $input;
         }
 
