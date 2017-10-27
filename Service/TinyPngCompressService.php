@@ -7,7 +7,11 @@ use Tinify\Source;
 /**
  * Class TinyPngCompressService
  *
+ * You can use this class most easily by accessing it via the service `tiny_png.compress.service`
+ *
  * @package Bolser\TinyPngBundle\Service
+ *
+ * @see https://tinypng.com/developers/reference/php#compressing-images TinyPNG Compression Documentation
  */
 class TinyPngCompressService
 {
@@ -22,9 +26,11 @@ class TinyPngCompressService
     }
 
     /**
-     * Compress and overwrite a single image
+     * Compress a single image
      *
      * @param string $input The full path of the image to compress
+     *
+     * @see https://tinypng.com/developers/reference/php#compressing-images TinyPNG Compression Documentation
      *
      * @return bool|int
      */
