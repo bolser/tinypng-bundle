@@ -41,3 +41,5 @@ services:
 
     $compressService = $container->get('tinypng.compress.service');
     $resizeService = $container->get('tinypng.resize.service');
+
+N.B That `resize` compresses the image as well so you do not need to do both
