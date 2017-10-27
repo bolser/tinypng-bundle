@@ -1,4 +1,4 @@
-## Bolser TinyPNG Bundle for Symfony
+## Bolser TinyPNG Bundle for Symfony 3
 
 This bundle will allow you to easily use the TinyPNG API with your Symfony project.
 
