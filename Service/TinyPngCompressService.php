@@ -2,6 +2,8 @@
 
 namespace Bolser\TinyPngBundle\Service;
 
+use Bolser\TinyPngBundle\Service\Base\BaseTinyPngService;
+use Exception;
 use Tinify\Source;
 
 /**
@@ -11,33 +13,41 @@ use Tinify\Source;
  *
  * @package Bolser\TinyPngBundle\Service
  *
- * @see https://tinypng.com/developers/reference/php#compressing-images TinyPNG Compression Documentation
+ * @see     https://tinypng.com/developers/reference/php#compressing-images TinyPNG Compression Documentation
  */
-class TinyPngCompressService
+class TinyPngCompressService extends BaseTinyPngService
 {
-    /**
-     * TinyPngCompressService constructor.
-     *
-     * @param string $apiKey
-     */
-    public function __construct(string $apiKey)
-    {
-        \Tinify\setKey($apiKey);
-    }
-
-    /**
+     /**
      * Compress a single image
-     *
-     * @param string $input The full path of the image to compress
      *
      * @see https://tinypng.com/developers/reference/php#compressing-images TinyPNG Compression Documentation
      *
+     * @param string $input     The full path of the image to compress
+     * @param string $output    The location to put the compressed file (Optional: Defaults to input file location)
+     * @param bool   $overwrite Overwrite the output file?
+     *
      * @return bool|int
+     * @throws Exception Thrown when an output was selected, already exists, but overwrite wasn't allowed
      */
-    public function compress($input)
+    public function compress(string $input, string $output = '', bool $overwrite = false)
     {
         /** @var Source $input */
         $source = \Tinify\fromFile($input);
-        return $source->toFile($input);
+
+        // If no output selected, use the input
+        if ($overwrite === '') {
+            $output = $input;
+        }
+
+        // Check for overwrite permissions.
+        if (file_exists($output) && !$overwrite) {
+            // Log an error and skip this file
+            $this->logger->error('File exists but overwrite was not allowed');
+
+            return false;
+        }
+
+        // Save the compressed image
+        return $source->toFile($output);
     }
 }

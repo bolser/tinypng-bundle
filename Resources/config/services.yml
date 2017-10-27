@@ -4,8 +4,8 @@ parameters:
 services:
     tiny_png.compress.service:
         class: '%tiny_png.compress.class%'
-        arguments: ['%tiny_png.api_key%']
+        arguments: ['%tiny_png.api_key%', '@logger']
 
     tiny_png.resize.service:
         class: '%tiny_png.resize.class%'
-        arguments: ['%tiny_png.api_key%']
+        arguments: ['%tiny_png.api_key%', '@logger']
