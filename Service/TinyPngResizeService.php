@@ -22,10 +22,10 @@ class TinyPngResizeService
     }
 
     /**
-     * Resize a single image
+     * Resize and compress a single image
      *
-     * @param        $input  The full path of the image to compress
-     * @param string $method The method to use when resizing. Options are 'scale', 'fit' and 'center'
+     * @param string $input  The full path of the image to compress
+     * @param string $method The method to use when resizing. Options are 'scale', 'fit' and 'cover'
      * @param int    $width  The desired width
      * @param int    $height The desired height
      */
